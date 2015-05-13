@@ -15,6 +15,15 @@ Route::get('/', 'IndexController@index');
 
 Route::controller('index', 'IndexController');
 
+Route::post('country/store', 'CountryController@postStore');
+Route::post('paymentoption/store', 'PaymentOptionController@postStore');
+Route::post('store/store', 'StoreController@postStore');
+
+Route::resource('admin/countries', 'CountryController');
+Route::resource('admin/paymentoptions', 'PaymentOptionController');
+Route::resource('admin/stores', 'StoreController');
+
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

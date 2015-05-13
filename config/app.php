@@ -136,8 +136,9 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
     'Illuminate\Html\HtmlServiceProvider',
-
-		/*
+		"Laralib\L5scaffold\GeneratorsServiceProvider",
+    'Nayjest\Grids\ServiceProvider',
+    /*
 		 * Application Service Providers...
 		 */
 		'App\Providers\AppServiceProvider',
@@ -145,7 +146,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-
+   
 	],
 
 	/*
@@ -195,6 +196,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
     'Form'      => 'Illuminate\Html\FormFacade',
     'HTML'      => 'Illuminate\Html\HtmlFacade',
+    'Grids'     => 'Nayjest\Grids\Grids',
 
 	],
 
