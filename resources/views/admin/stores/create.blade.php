@@ -1,15 +1,11 @@
 @extends('layout')
 
 @section('css')
-
-<link rel="stylesheet" type="text/css" href="{{ asset('/js/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/js/jasny.bootstrap/extend/css/jasny-bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/bootstrap.switch/bootstrap-switch.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('/js/bootstrap.datetimepicker/css/bootstrap-datetimepicker.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.select2/select2.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('/js/bootstrap.slider/css/slider.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.icheck/skins/flat/green.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/bootstrap.daterangepicker/daterangepicker-bs3.css') }}">
-
 @endsection
 
 @section('breadcrumbs')
@@ -77,28 +73,22 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label"><div class="row">Payment options</div></label>
                     <div class="col-sm-8">
-                      <div class="row">
-                        <label class="checkbox-inline"> 
-                        <div class="icheckbox_flat-green" aria-checked="true" aria-disabled="false" style="position: relative;"><input class="icheck" type="checkbox" checked="" name="rad1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Payment option 1</label> 
-                      <label class="checkbox-inline"> 
-                        <div class="icheckbox_flat-green checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input class="icheck" type="checkbox" name="rad1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Payment option 2</label> 
-                      <label class="checkbox-inline"> 
-                        <div class="icheckbox_flat-green checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input class="icheck" type="checkbox" name="rad1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Payment option 3</label>
-                      </div>
-                      <div class="row">
-                      <label class="checkbox-inline"> 
-                        <div class="icheckbox_flat-green checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input class="icheck" type="checkbox" checked="" name="rad1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Payment option 4</label> 
-                      <label class="checkbox-inline"> 
-                        <div class="icheckbox_flat-green checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input class="icheck" type="checkbox" name="rad1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Payment option 5</label> 
-                      <label class="checkbox-inline"> 
-                        <div class="icheckbox_flat-green checked" aria-checked="true" aria-disabled="false" style="position: relative;"><input class="icheck" type="checkbox" name="rad1" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div> Payment option 6</label>
-                      </div>
+                        <?php $i=0; ?>
+                        <div class="row">
+                            @foreach(App\PaymentOption::all() as $option)
+                            <label class="checkbox-inline">
+                                <input class="icheck" type="checkbox" checked="" name="rad1">
+                                {{ $option->name }}
+                            </label>
+                            <?php $i++; if($i%3==0) { ?> </div><div class="row"> <?php } ?>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Delivery countries </br> <small>(multi select)</small></label>
                     <div class="col-sm-6">
-                        {!! Form::select('country_id', $countries, null, array('class' => 'form-control')) !!}
+                        {!! Form::select('country_id', $countries, null, array('class' => 'form-control', "multiple")) !!}
                     </div>
                 </div>
               </form>
@@ -106,4 +96,21 @@
           </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+
+ {!! HTML::script('js/jasny.bootstrap/extend/js/jasny-bootstrap.min.js') !!}
+ {!! HTML::script('js/bootstrap.daterangepicker/moment.min.js') !!}
+ {!! HTML::script('js/bootstrap.touchspin/bootstrap-touchspin/bootstrap.touchspin.js') !!}
+ {!! HTML::script('js/jquery.select2/select2.min.js') !!}
+ {!! HTML::script('js/jquery.icheck/icheck.min.js') !!}
+
+  <script type="text/javascript">
+    $(window).load(function(){
+        $('.icheck').iCheck({
+          checkboxClass: 'icheckbox_flat-green',
+        });
+    });
+  </script>
+
 @endsection

@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{ asset('/js/jasny.bootstrap/extend/css/jasny-bootstrap.min.css') }}">
+@endsection
+
 @section('breadcrumbs')
 
     <div class="page-head">
@@ -60,4 +64,10 @@
           </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+
+ {!! HTML::script('js/jasny.bootstrap/extend/js/jasny-bootstrap.min.js') !!}
+
 @endsection

@@ -95,11 +95,22 @@ class StoreController extends Controller {
 			return \Redirect::back()->withErrors($validation)->withInput();
 		}
 		
-		$country = Store::findOrFail($id);
+		$store = Store::findOrFail($id);
 
-		$country->name = $request->input("name");
+		$store->name = $request->input("name");
 
-		$country->save();
+		$file = \Input::file('img');
+		
+		if (\Input::hasFile('img')) {
+			$dir = '/uploads/store';
+			$filename = date('ymd').$_FILES['img']['name'];
+			
+			\Input::file('img')->move(public_path().$dir, $filename);
+			
+			$store->img = $dir.$filename;
+		}
+		
+		$store->save();
 
 		return redirect()->route('admin.stores.index')->with('message', 'Item updated successfully.');
 	}

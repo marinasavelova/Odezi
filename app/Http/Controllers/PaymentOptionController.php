@@ -119,13 +119,10 @@ class PaymentOptionController extends Controller {
 			\Input::file('img')->move(public_path().$dir, $filename);
 			
 			$paymentoption->img = $dir.$filename;
-			$paymentoption->save();
 		}
-		/*Image::make(\Input::file('img'))->save($_FILES['img']['name']);
 		
-		$paymentoption->img = $_FILES['img']['name'];
-		$paymentoption->save();*/
-
+		$paymentoption->save();
+		
 		return redirect()->route('admin.paymentoptions.index')->with('message', 'Item updated successfully.');
 	}
 

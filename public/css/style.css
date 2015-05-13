@@ -391,8 +391,6 @@ pre {
 }
 .navbar-default .navbar-nav > li.button .bubble {
   position: absolute;
-  top: 5px;
-  left: 27px;
   top: 2px;
   left: 23px;
   background-color: #e44c34;
@@ -616,9 +614,6 @@ pre {
   max-height: none;
   position: relative;
 }
-.navbar-fixed-top {
-  left: 280px;
-}
 /*Page Title*/
 .page-head {
   position: relative;
@@ -723,7 +718,7 @@ body.boxed #cl-wrapper {
   width: 92%;
   position: relative;
   margin: 0 auto;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #F0F0F0;
 }
 /*Forms*/
@@ -893,8 +888,8 @@ textarea.form-control {
 }
 input::-webkit-input-speech-button {
   -webkit-transform: scale(3, 2.2) translate(-2px, -1px);
-  background-color: #fff;
-  display: block !important;
+  background-color: #fff
+  display:block !important;
 }
 .cl-mcont {
   background-color: #F0F0F0;
@@ -992,11 +987,10 @@ input::-webkit-input-speech-button {
 .cl-vnavigation {
   margin: 0 0 0 0;
   padding: 0;
-  list-style: none;
 }
-.cl-vnavigation .parent > a:before {
+.cl-vnavigation > .parent > a:before {
   display: inline-block;
-  content: "\f105";
+  content: "";
   font-family: 'FontAwesome';
   float: right;
   -webkit-transition: rotate 250ms ease;
@@ -1004,7 +998,7 @@ input::-webkit-input-speech-button {
   -o-transition: rotate 250ms ease;
   transition: transform 250ms ease;
 }
-.cl-vnavigation .parent.open > a:before {
+.cl-vnavigation > .parent.open > a:before {
   transform: rotate(90deg);
 }
 .cl-vnavigation li a {
@@ -1123,7 +1117,7 @@ input::-webkit-input-speech-button {
 }
 #cl-wrapper.fixed-menu .menu-space {
   position: fixed;
-  width: 280px;
+  width: 216px;
   background: #272930;
 }
 #cl-wrapper.fixed-menu .menu-space .content {
@@ -1157,7 +1151,7 @@ input::-webkit-input-speech-button {
 .sb-collapsed .cl-vnavigation li.open ul {
   display: none !important;
 }
-#sub-menu-nav > ul {
+#sub-menu-nav ul {
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.22);
   color: #333;
   background: #FFF;
@@ -1168,10 +1162,27 @@ input::-webkit-input-speech-button {
   border-top: 0;
   border-radius: 3px;
 }
-#sub-menu-nav > ul li {
+#sub-menu-nav ul li:first-child {
+  padding-top: 0;
+}
+#sub-menu-nav ul li:last-child {
+  padding-bottom: 0;
+}
+#sub-menu-nav ul li.dropdown-header i {
+  text-align: center;
+  width: 15px;
+}
+#sub-menu-nav ul li.dropdown-header {
+  padding: 1px 11px;
+  padding-bottom: 6px;
+}
+#sub-menu-nav ul {
+  padding: 5px 0;
+}
+#sub-menu-nav ul li {
   list-style: none;
 }
-#sub-menu-nav > ul li > a {
+#sub-menu-nav ul li a {
   margin-right: -1px;
   display: block;
   font-size: 11px;
@@ -1182,42 +1193,9 @@ input::-webkit-input-speech-button {
   background: transparent;
   padding: 6px 20px 6px 31px;
 }
-#sub-menu-nav > ul li > a:hover {
+#sub-menu-nav ul li a:hover {
   background-color: #7761a7;
   color: #FFF;
-}
-#sub-menu-nav > ul li ul li a {
-  margin-right: -1px;
-  display: block;
-  font-size: 11px;
-  border-bottom: 0;
-  color: #333333;
-  text-shadow: none;
-  text-align: left;
-  background: transparent;
-  padding: 6px 20px 6px 41px;
-}
-#sub-menu-nav > ul li ul li a:hover {
-  background-color: #7761a7;
-  color: #FFF;
-}
-#sub-menu-nav > ul li:first-child {
-  padding-top: 0;
-}
-#sub-menu-nav > ul li:last-child {
-  padding-bottom: 0;
-}
-#sub-menu-nav > ul > li.dropdown-header {
-  padding: 1px 11px;
-  padding-bottom: 6px;
-  display: block !important;
-}
-#sub-menu-nav > ul > li.dropdown-header i {
-  text-align: center;
-  width: 15px;
-}
-#sub-menu-nav > ul li.dropdown-header {
-  display: none;
 }
 #sub-menu-nav ul:after {
   background: url(../images/menu-tail-left.png) no-repeat right 10px;
@@ -1252,9 +1230,6 @@ input::-webkit-input-speech-button {
 }
 .cl-vnavigation .parent ul li {
   list-style: none;
-}
-.cl-vnavigation .parent ul li ul li a {
-  padding-left: 52px;
 }
 .cl-vnavigation .parent ul li.dropdown-header {
   display: none;
@@ -7541,16 +7516,16 @@ ul.timeline li > .date {
     padding-left: 0;
   }
   .cl-sidebar {
-    width: 70px;
+    width: 55px;
   }
   #head-nav.topbar .horizontal > li > a {
     padding: 22px 16px;
   }
   #pcont {
-    margin-left: 70px;
+    margin-left: 55px;
   }
   #cl-wrapper.fixed-menu .menu-space {
-    width: 70px;
+    width: 55px;
   }
   .cl-vnavigation li {
     position: relative;

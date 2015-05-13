@@ -29,9 +29,10 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.codemirror/lib/codemirror.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.codemirror/theme/ambiance.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.vectormaps/jquery-jvectormap-1.2.2.css') }}"  media="screen">
-  <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
   
   @yield('css')
+  
+  <link rel="stylesheet" type="text/css" href="{{ asset('/css/style.css') }}">
 
 </head>
 

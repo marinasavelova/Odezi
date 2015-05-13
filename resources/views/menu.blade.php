@@ -11,7 +11,7 @@
             MENU
           </div>
           <ul class="cl-vnavigation">
-            <li class="active"><a href="{{url('/')}}"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+            <li class=""><a href="{{url('/')}}"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
             <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Store</span></a>
               <ul class="sub-menu">
                 <li><a href="{{action('StoreController@index')}}">Store overview</a></li>
