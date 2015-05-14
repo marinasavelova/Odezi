@@ -12,7 +12,7 @@ class CreateStorePaymentOptionTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('store_payment_option', function(Blueprint $table)
+		Schema::create('payment_option_store', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('store_id')->unsigned();
@@ -33,7 +33,7 @@ class CreateStorePaymentOptionTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('store_payment_option');
+		Schema::drop('store_payment_options');
 	}
 
 }

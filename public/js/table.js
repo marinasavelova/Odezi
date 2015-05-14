@@ -2,6 +2,9 @@
     var functions = $('<div class="btn-group"><button class="btn btn-default btn-xs" type="button">Actions</button><button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul role="menu" class="dropdown-menu"><li><a href="#">Edit</a></li><li class="divider"></li><li><a href="#">Remove</a></li></ul></div>');
     $("#datatable tbody tr td:last-child").each(function(){
       $(this).html("");
+      var editurl = $(this).parents("tr").attr("edit-href");
+      var destroyurl = $(this).parents("tr").attr("destroy-href");
+      var functions = $('<div class="btn-group"><button class="btn btn-default btn-xs" type="button">Actions</button><button data-toggle="dropdown" class="btn btn-xs btn-primary dropdown-toggle" type="button"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button><ul role="menu" class="dropdown-menu"><li><a href="'+editurl+'">Edit</a></li><li class="divider"></li><li><a href="'+destroyurl+'">Remove</a></li></ul></div>');
       functions.clone().appendTo(this);
     });
     

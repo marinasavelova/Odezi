@@ -1,47 +1,72 @@
+
 @extends('layout')
 
-@section('content')
-    <div class="page-header">
-        <h1>Stores</h1>
+@section('css')
+
+<link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.datatables/bootstrap-adapter/css/datatables.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.nanoscroller/nanoscroller.css') }}">
+
+@endsection
+
+@section('breadcrumbs')
+
+    <div class="page-head">
+        <h2>Store overview</h2>
+        <ol class="breadcrumb">
+          <li><a href="{{url('/')}}">Dashboard</a></li>
+          <li><a href="{{action('StoreController@index')}}">Store</a></li>
+          <li class="active">Store overview</li>
+        </ol>
     </div>
+    
+@endsection
 
-
-    <div class="row">
+@section('content')
+    
+   <div class="row">
         <div class="col-md-12">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th class="text-right">OPTIONS</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                {!! $grid !!}
-
-                
-                @foreach($stores as $store)
-                <tr>
-                    <td>{{$store->id}}</td>
-                    <td>{{$store->name}}</td>
-
-                    <td class="text-right">
-                        <a class="btn btn-primary" href="{{ route('admin.stores.show', $store->id) }}">View</a>
-                        <a class="btn btn-warning " href="{{ route('admin.stores.edit', $store->id) }}">Edit</a>
-                        <form action="{{ route('admin.stores.destroy', $store->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };"><input type="hidden" name="_method" value="DELETE"><input type="hidden" name="_token" value="{{ csrf_token() }}"> <button class="btn btn-danger" type="submit">Delete</button></form>
-                    </td>
-                </tr>
-
-                @endforeach
-
-                </tbody>
-            </table>
-
-            <a class="btn btn-success" href="{{ route('admin.stores.create') }}">Create</a>
+            <div class="block-flat">
+                <div class="header">              
+                  <h3>All stores</h3>
+                </div>
+                <div class="content">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="datatable" >
+                        <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Home country</th>
+                              <th>Payment</th>
+                              <th>Delivery</th>
+                              <th style="min-width:90px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($stores as $store)
+                            <tr edit-href="{{ route('admin.stores.edit', $store->id) }}" destroy-href="{{ route('admin.stores.destroy', $store->id) }}">
+                                <td>{{$store->name}}</td>
+                                <td>{{$store->country->name}}</td>
+                                <td>{{$store->getListPaymentOption()}}</td>
+                                <td>{{$store->getListDelivery()}}</td>
+                                <td></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
         </div>
     </div>
+    
+    @endsection
 
+@section('scripts')
+
+{!! HTML::script('js/jquery.jeditable/jquery.jeditable.mini.js') !!}
+{!! HTML::script('js/jquery.datatables/jquery.datatables.min.js') !!}
+{!! HTML::script('js/jquery.datatables/bootstrap-adapter/js/datatables.js') !!}
+
+{!! HTML::script('js/table.js') !!}
 
 @endsection

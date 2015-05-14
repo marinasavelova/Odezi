@@ -26,7 +26,7 @@
         <div class="col-md-12">
             <div class="block-flat">
             <div class="header">
-              <button type="submit" class="btn btn-success pull-right"><i class="fa fa-cloud-download"></i> Save</button>            
+              <button type="submit" id="save-form" class="btn btn-success pull-right"><i class="fa fa-cloud-download"></i> Save</button>            
               <h3>Store information</h3>
             </div>
             <div class="content">
@@ -37,7 +37,7 @@
                         @endforeach
                     </div>
                 @endif
-              <form class="form-horizontal group-border-dashed" style="border-radius: 0px;" role="form" action="{{ action('StoreController@postStore') /*route('admin.countries.create')*/ }}" method="POST" enctype="multipart/form-data">
+              <form id="store-form" class="form-horizontal group-border-dashed" style="border-radius: 0px;" role="form" action="{{ action('StoreController@postStore') /*route('admin.countries.create')*/ }}" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Shop name</label>
@@ -77,7 +77,7 @@
                         <div class="row">
                             @foreach(App\PaymentOption::all() as $option)
                             <label class="checkbox-inline">
-                                <input class="icheck" type="checkbox" checked="" name="rad1">
+                                <input class="icheck" type="checkbox" checked="" name="paymentoption[]" value="{{ $option->id }}">
                                 {{ $option->name }}
                             </label>
                             <?php $i++; if($i%3==0) { ?> </div><div class="row"> <?php } ?>
@@ -88,7 +88,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label">Delivery countries </br> <small>(multi select)</small></label>
                     <div class="col-sm-6">
-                        {!! Form::select('country_id', $countries, null, array('class' => 'form-control', "multiple")) !!}
+                        {!! Form::select('delivery_id[]', $countries, null, array('class' => 'form-control', "multiple")) !!}
                     </div>
                 </div>
               </form>
@@ -109,6 +109,10 @@
     $(window).load(function(){
         $('.icheck').iCheck({
           checkboxClass: 'icheckbox_flat-green',
+        });
+        
+        $("#save-form").on("click", function(){
+            $("#store-form").submit();
         });
     });
   </script>

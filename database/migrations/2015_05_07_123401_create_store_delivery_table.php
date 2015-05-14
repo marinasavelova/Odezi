@@ -12,7 +12,7 @@ class CreateStoreDeliveryTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('store_delivery', function(Blueprint $table)
+		Schema::create('delivery_store', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('store_id')->unsigned();
@@ -33,7 +33,7 @@ class CreateStoreDeliveryTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('store_delivery');
+		Schema::drop('store_deliveries');
 	}
 
 }

@@ -40,7 +40,7 @@
                         </thead>
                         <tbody>
                             @foreach($paymentoptions as $paymentoption)
-                            <tr href="{{ route('admin.paymentoptions.edit', $paymentoption->id) }}">
+                            <tr edit-href="{{ route('admin.paymentoptions.edit', $paymentoption->id) }}" destroy-href="{{ route('admin.paymentoptions.destroy', $paymentoption->id) }}">
                                 <td>{{$paymentoption->name}}</td>
                                 <td></td>
                             </tr>

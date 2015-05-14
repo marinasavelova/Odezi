@@ -40,7 +40,7 @@
                         </thead>
                         <tbody>
                             @foreach($countries as $country)
-                            <tr href="{{ route('admin.countries.edit', $country->id) }}">
+                            <tr edit-href="{{ route('admin.countries.edit', $country->id) }}">
                                 <td>{{$country->name}}</td>
                                 <td></td>
                                 <!--    <a class="btn btn-primary" href="{{ route('admin.countries.show', $country->id) }}">View</a>-->

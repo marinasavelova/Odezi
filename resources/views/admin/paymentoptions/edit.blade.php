@@ -45,7 +45,9 @@
                     <label class="col-sm-3 control-label">Logo</label>
                     <div class="col-sm-6">
                       <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                        <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                            <img class="" src="{{ asset("$paymentoption->img") }}" alt=""/>
+                        </div>
                         <div>
                           <span class="btn btn-primary btn-file"><span class="fileinput-new">Select image</span><span class="fileinput-exists">Change</span><input type="file" name="img"></span>
                           <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Remove</a>

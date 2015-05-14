@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class StoreController extends Controller {
 
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -15,7 +20,7 @@ class StoreController extends Controller {
 	 */
 	public function index()
 	{
-		$stores = Store::all();
+		$stores = Store::with('country','paymentoptionstore','deliverystore')->get();
 
 		return view('admin.stores.index', compact('stores'));
 	}
@@ -38,17 +43,29 @@ class StoreController extends Controller {
 	 */
 	public function postStore(/*Request $request*/)
 	{ 
-		//$country = new Store();
-		//
-		//$country->name = $request->input("name");
-		//$country->save();
 		$data = \Input::all();
 		
 		$validation = \Validator::make($data, Store::getValidationRules());
 		if ($validation->fails()) {
 			return \Redirect::back()->withErrors($validation)->withInput();
 		}
-		$country = Store::create($data);
+		$store = Store::create($data);
+		
+		$store->paymentoptionstore()->sync($data['paymentoption']);
+		$store->deliverystore()->sync($data['delivery_id']);
+		
+		$file = \Input::file('img');
+		
+		if (\Input::hasFile('img')) {
+			$dir = '/uploads/store/';
+			$filename = date('ymd').$_FILES['img']['name'];
+			
+			\Input::file('img')->move(public_path().$dir, $filename);
+			
+			$store->img = $dir.$filename;
+		}
+		
+		$store->save();
 		
 		return redirect()->route('admin.stores.index')->with('message', 'Item created successfully.');
 	}
@@ -74,9 +91,9 @@ class StoreController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$country = Store::findOrFail($id);
+		$store = Store::findOrFail($id);
 
-		return view('admin.stores.edit', compact('country'));
+		return view('admin.stores.edit', compact('store'));
 	}
 
 	/**
@@ -102,7 +119,7 @@ class StoreController extends Controller {
 		$file = \Input::file('img');
 		
 		if (\Input::hasFile('img')) {
-			$dir = '/uploads/store';
+			$dir = '/uploads/store/';
 			$filename = date('ymd').$_FILES['img']['name'];
 			
 			\Input::file('img')->move(public_path().$dir, $filename);
@@ -111,6 +128,9 @@ class StoreController extends Controller {
 		}
 		
 		$store->save();
+		
+		$store->paymentoptionstore()->sync($data['paymentoption']);
+		$store->deliverystore()->sync($data['delivery_id']);
 
 		return redirect()->route('admin.stores.index')->with('message', 'Item updated successfully.');
 	}

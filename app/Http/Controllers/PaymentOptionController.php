@@ -13,6 +13,12 @@ class PaymentOptionController extends Controller {
 	 *
 	 * @return Response
 	 */
+	
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
 	public function index()
 	{
 		$paymentoptions = PaymentOption::all();
@@ -49,17 +55,26 @@ class PaymentOptionController extends Controller {
 	
 	public function postStore(/*Request $request*/)
 	{ 
-		//$country = new Country();
-		//
-		//$country->name = $request->input("name");
-		//$country->save();
 		$data = \Input::all();
 		
 		$validation = \Validator::make($data, PaymentOption::getValidationRules());
 		if ($validation->fails()) {
 			return Redirect::back()->withErrors($validation)->withInput();
 		}
-		$country = PaymentOption::create($data);
+		$paymentoption = PaymentOption::create($data);
+		
+	  $file = \Input::file('img');
+		
+		if (\Input::hasFile('img')) {
+			$dir = '/uploads/paymentoptions/';
+			$filename = date('ymd').$_FILES['img']['name'];
+			
+			\Input::file('img')->move(public_path().$dir, $filename);
+			
+			$paymentoption->img = $dir.$filename;
+		}
+		
+		$paymentoption->save();
 		
 		return redirect()->route('admin.paymentoptions.index')->with('message', 'Item created successfully.');
 	}
@@ -113,7 +128,7 @@ class PaymentOptionController extends Controller {
 	  $file = \Input::file('img');
 		
 		if (\Input::hasFile('img')) {
-			$dir = '/uploads/paymentoptions';
+			$dir = '/uploads/paymentoptions/';
 			$filename = date('ymd').$_FILES['img']['name'];
 			
 			\Input::file('img')->move(public_path().$dir, $filename);

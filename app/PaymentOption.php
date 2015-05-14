@@ -15,6 +15,7 @@ class PaymentOption extends Model {
   
   protected $fillable = array(
 		'name',
+    'img',
 	);
 
 	protected $guarded = array(

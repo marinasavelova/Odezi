@@ -7,7 +7,7 @@
 	<div class="middle-sign-up">
 		<div class="block-flat">
 			<div class="header">							
-				<h3 class="text-center"><img class="logo-img" src="images/logo.png" alt="logo"/></h3>
+				<h3 class="text-center"><img class="logo-img" src="{{ asset('images/logo.png') }}" alt="logo"/></h3>
 			</div>
 			<div>
 			@if (count($errors) > 0)
