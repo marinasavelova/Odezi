@@ -138,7 +138,7 @@ return [
     'Illuminate\Html\HtmlServiceProvider',
 		'Laralib\L5scaffold\GeneratorsServiceProvider',
     'Nayjest\Grids\ServiceProvider',
-    //'Xinax\LaravelGettext\LaravelGettextServiceProvider',
+    'Xinax\LaravelGettext\LaravelGettextServiceProvider',
     /*
 		 * Application Service Providers...
 		 */

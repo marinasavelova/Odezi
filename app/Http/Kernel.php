@@ -16,7 +16,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		'App\Http\Middleware\VerifyCsrfToken',
-   // 'Xinax\LaravelGettext\Middleware\GettextMiddleware',
+    'Xinax\LaravelGettext\Middleware\GettextMiddleware',
 	];
 
 	/**
