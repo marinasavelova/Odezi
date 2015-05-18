@@ -136,8 +136,9 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
     'Illuminate\Html\HtmlServiceProvider',
-		"Laralib\L5scaffold\GeneratorsServiceProvider",
+		'Laralib\L5scaffold\GeneratorsServiceProvider',
     'Nayjest\Grids\ServiceProvider',
+    'Xinax\LaravelGettext\LaravelGettextServiceProvider',
     /*
 		 * Application Service Providers...
 		 */

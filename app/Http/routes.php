@@ -18,11 +18,22 @@ Route::controller('index', 'IndexController');
 Route::post('country/store', 'CountryController@postStore');
 Route::post('paymentoption/store', 'PaymentOptionController@postStore');
 Route::post('store/store', 'StoreController@postStore');
+Route::post('brand/store', 'BrandController@postStore');
+Route::post('delivery/store', 'DeliveryController@postStore');
+
+
 
 Route::resource('admin/countries', 'CountryController');
 Route::resource('admin/paymentoptions', 'PaymentOptionController');
 Route::resource('admin/stores', 'StoreController');
+Route::resource('admin/brands', 'BrandController');
+Route::resource('admin/deliveries', 'DeliveryController');
 
+
+/*Route::get('/lang/{locale?}', [
+  'as'=>'lang', 
+  'uses'=>'IndexController@changeLang'
+]);*/
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

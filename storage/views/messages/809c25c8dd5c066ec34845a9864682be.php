@@ -12,8 +12,10 @@ class IndexController extends Controller {
 		return view('admin.index');
 	}
 	
-	/*public function changeLang($locale=null){
-		\LaravelGettext::setLocale($locale);
-		return \Redirect::to(\URL::previous());
-	}*/
+	public function changeLang($locale=null){
+
+        \LaravelGettext::setLocale($locale);
+        return \Redirect::to(\URL::previous());
+
+    }
 }

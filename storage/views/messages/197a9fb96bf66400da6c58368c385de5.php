@@ -8,12 +8,13 @@
             </div>
           </div>
           <div class="side-user">
-          <!--{!! LaravelGettext::getSelector()->render() !!}-->
-            MENU    <?php //echo _('Another translated string'); ?>
+          <?php echo LaravelGettext::getSelector()->render(); ?>
+
+            MENU    <?php echo _('Another translated string'); ?>
           </div>
           <ul class="cl-vnavigation">
-            <li class=""><a href="{{url('/')}}"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
-            <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Product</span></a>
+            <li class=""><a href="<?php echo e(url('/')); ?>"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
+            <li><a href="#"><i class="fa fa-shopping-cart"></i><span><?php echo _('Product'); ?></span></a>
               <ul class="sub-menu">
                 <li><a href="#">Overview</a></li>
                 <li><a href="#">Add new</a></li>
@@ -21,8 +22,8 @@
             </li>
             <li><a href="#"><i class="fa fa-picture-o"></i><span>Brand</span></a>
               <ul class="sub-menu">
-                <li><a href="{{action('BrandController@index')}}">Overview</a></li>
-                <li><a href="{{action('BrandController@create')}}">Add new</a></li>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Add new</a></li>
                </ul>
             </li>
             <li><a href="#"><i class="fa fa-folder"></i><span>Category</span></a>
@@ -33,26 +34,26 @@
             </li>
             <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Store</span></a>
               <ul class="sub-menu">
-                <li><a href="{{action('StoreController@index')}}">Overview</a></li>
-                <li><a href="{{action('StoreController@create')}}">Add new</a></li>
+                <li><a href="<?php echo e(action('StoreController@index')); ?>">Overview</a></li>
+                <li><a href="<?php echo e(action('StoreController@create')); ?>">Add new</a></li>
                </ul>
             </li>
             <li><a href="#"><i class="fa fa-money"></i><span>Payment Options</span></a>
               <ul class="sub-menu">
-                <li><a href="{{action('PaymentOptionController@index')}}">Overview</a></li>
-                <li><a href="{{action('PaymentOptionController@create')}}">Add new</a></li>
+                <li><a href="<?php echo e(action('PaymentOptionController@index')); ?>">Overview</a></li>
+                <li><a href="<?php echo e(action('PaymentOptionController@create')); ?>">Add new</a></li>
                </ul>
             </li>
             <li><a href="#"><i class="fa fa-globe"></i><span>Country</span></a>
               <ul class="sub-menu">
-                <li><a href="{{action('CountryController@index')}}">Overview</a></li>
-                <li><a href="{{action('CountryController@create')}}">Add new</a></li>
+                <li><a href="<?php echo e(action('CountryController@index')); ?>">Overview</a></li>
+                <li><a href="<?php echo e(action('CountryController@create')); ?>">Add new</a></li>
                </ul>
             </li>
             <li><a href="#"><i class="fa fa-truck"></i><span>Delivery terms</span></a>
               <ul class="sub-menu">
-                <li><a href="{{action('DeliveryController@index')}}">Overview</a></li>
-                <li><a href="{{action('DeliveryController@create')}}">Add new</a></li>
+                <li><a href="#">Overview</a></li>
+                <li><a href="#">Add new</a></li>
                </ul>
             </li> 
           </ul>
