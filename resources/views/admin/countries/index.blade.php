@@ -11,11 +11,11 @@
 @section('breadcrumbs')
 
     <div class="page-head">
-        <h2>Countries overview</h2>
+        <h2>Country overview</h2>
         <ol class="breadcrumb">
           <li><a href="{{url('/')}}">Dashboard</a></li>
           <li><a href="{{action('CountryController@index')}}">Country</a></li>
-          <li class="active">Countries overview</li>
+          <li class="active">Country overview</li>
         </ol>
     </div>
     

@@ -11,11 +11,11 @@
 @section('breadcrumbs')
 
     <div class="page-head">
-        <h2>Brand overview</h2>
+        <h2>Category overview</h2>
         <ol class="breadcrumb">
           <li><a href="{{url('/')}}">Dashboard</a></li>
-          <li><a href="{{action('BrandController@index')}}">Brand</a></li>
-          <li class="active">Brand overview</li>
+          <li><a href="{{action('CategoryController@index')}}">Category</a></li>
+          <li class="active">Category overview</li>
         </ol>
     </div>
     
@@ -27,21 +27,23 @@
         <div class="col-md-12">
             <div class="block-flat">
                 <div class="header">              
-                  <h3>All brands</h3>
+                  <h3>All categories</h3>
                 </div>
                 <div class="content">
                   <div class="table-responsive">
                     <table class="table table-bordered" id="datatable" >
                         <thead>
                             <tr>
-                              <th>Brand</th>
+                              <th>Name</th>
+                              <th>Category</th>
                               <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($brands as $brand)
-                            <tr edit-href="{{ route('admin.brands.edit', $brand->id) }}">
-                                <td>{{$brand->name}}</td>
+                            @foreach($categories as $category)
+                            <tr edit-href="{{ route('admin.categories.edit', $category->id) }}">
+                                <td>{{$category->name}}</td>
+                                <td>{{$category->parentcategory->name or "-"}}</td>
                                 <td></td>
                             </tr>
                             @endforeach
@@ -49,7 +51,6 @@
                     </table>
                   </div>
                 </div>
-                <!--<a class="btn btn-success" href="{{ route('admin.countries.create') }}">Create</a>-->
             </div>
         </div>
     </div>
@@ -64,11 +65,4 @@
 
 {!! HTML::script('js/table.js') !!}
 
-<script>
- $(document).ready(function(){
-      $('#datatable').on('click', 'td', function(){
-        alert("dfffffffff");
-      });
- });
-</script>
 @endsection

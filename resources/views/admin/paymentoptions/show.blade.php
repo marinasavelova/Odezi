@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page-header">
-        <h1>PaymentOptions / Show </h1>
+        <h1>Payment options / Show </h1>
     </div>
 
 

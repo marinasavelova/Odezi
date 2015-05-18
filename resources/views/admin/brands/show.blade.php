@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="page-header">
-        <h1>Brands / Show </h1>
+        <h1>Brand / Show </h1>
     </div>
 
 
@@ -23,7 +23,7 @@
 
 
             <a class="btn btn-default" href="{{ route('admin.brands.index') }}">Back</a>
-            <a class="btn btn-warning" href="{{ route('admin.brands.edit', $country->id) }}">Edit</a>
+            <a class="btn btn-warning" href="{{ route('admin.brands.edit', $brand->id) }}">Edit</a>
             <form action="#/$brand->id" method="DELETE" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };"><button class="btn btn-danger" type="submit">Delete</button></form>
         </div>
     </div>

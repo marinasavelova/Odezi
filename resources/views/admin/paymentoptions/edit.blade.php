@@ -22,7 +22,7 @@
         <div class="col-md-12">
             <div class="block-flat">
             <div class="header">              
-              <h3>Edit country</h3>
+              <h3>Edit payment option</h3>
             </div>
             <div class="content">
                 @if ($errors->all())

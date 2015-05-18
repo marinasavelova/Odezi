@@ -20,6 +20,7 @@ Route::post('paymentoption/store', 'PaymentOptionController@postStore');
 Route::post('store/store', 'StoreController@postStore');
 Route::post('brand/store', 'BrandController@postStore');
 Route::post('delivery/store', 'DeliveryController@postStore');
+Route::post('category/store', 'CategoryController@postStore');
 
 
 
@@ -28,6 +29,8 @@ Route::resource('admin/paymentoptions', 'PaymentOptionController');
 Route::resource('admin/stores', 'StoreController');
 Route::resource('admin/brands', 'BrandController');
 Route::resource('admin/deliveries', 'DeliveryController');
+Route::resource('admin/categories', 'CategoryController');
+
 
 
 /*Route::get('/lang/{locale?}', [

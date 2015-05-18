@@ -27,8 +27,8 @@
             </li>
             <li><a href="#"><i class="fa fa-folder"></i><span>Category</span></a>
               <ul class="sub-menu">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Add new</a></li>
+                <li><a href="{{action('CategoryController@index')}}">Overview</a></li>
+                <li><a href="{{action('CategoryController@create')}}">Add new</a></li>
                </ul>
             </li>
             <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Store</span></a>
