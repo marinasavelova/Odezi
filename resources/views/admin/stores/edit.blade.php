@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{ asset('/js/jasny.bootstrap/extend/css/jasny-bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/bootstrap.switch/bootstrap-switch.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.select2/select2.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/js/jquery.icheck/skins/flat/green.css') }}">

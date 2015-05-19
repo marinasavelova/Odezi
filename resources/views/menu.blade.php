@@ -15,8 +15,8 @@
             <li class=""><a href="{{url('/')}}"><i class="fa fa-home"></i><span>Dashboard</span></a></li>
             <li><a href="#"><i class="fa fa-shopping-cart"></i><span>Product</span></a>
               <ul class="sub-menu">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Add new</a></li>
+                <li><a href="{{action('ProductController@index')}}">Overview</a></li>
+                <li><a href="{{action('ProductController@create')}}">Add new</a></li>
                </ul>
             </li>
             <li><a href="#"><i class="fa fa-picture-o"></i><span>Brand</span></a>

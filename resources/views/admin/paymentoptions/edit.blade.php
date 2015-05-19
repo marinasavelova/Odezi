@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('css')
-<link rel="stylesheet" type="text/css" href="{{ asset('/js/jasny.bootstrap/extend/css/jasny-bootstrap.min.css') }}">
-@endsection
-
 @section('breadcrumbs')
 
     <div class="page-head">
