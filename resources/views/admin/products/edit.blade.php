@@ -124,6 +124,12 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">Eancode</label>
+                    <div class="col-sm-6">
+                      <input type="name" class="form-control" id="ean_code" name="ean_code" placeholder="insert eancode">
+                    </div>
+                </div>
+                <div class="form-group">
                     <div class="col-sm-offset-3 col-sm-6">
                       <button type="submit" class="btn btn-primary">Save</button>
                       <a class="btn btn-default" href="{{ route('admin.products.index') }}">Cancel</a>
