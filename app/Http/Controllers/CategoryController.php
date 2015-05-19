@@ -103,7 +103,8 @@ class CategoryController extends Controller {
 		
 		$category = Category::findOrFail($id);
 		$category->name = $request->input("name");
-		$parent = empty($request->input("parent_id")) ? null : $request->input("parent_id");
+		$parent = $request->input("parent_id");
+		$parent = empty($parent) ? null : $parent;
 		$category->parent_id = $parent;
 
 		$category->save();
