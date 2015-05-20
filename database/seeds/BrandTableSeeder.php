@@ -4,18 +4,18 @@ use Illuminate\Database\Seeder;
 
 // composer require laracasts/testdummy
 use Laracasts\TestDummy\Factory as TestDummy;
-use App\Country;
+use App\Brand;
 
-class CountryTableSeeder extends Seeder {
+class BrandTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('countries')->delete();
+        DB::table('brands')->delete();
         
-        for($i=1; $i<=15; $i++)
+        for($i=1; $i<=10; $i++)
         {
-            Country::create([
-                'name' => 'Country ' . $i,
+            Brand::create([
+                'name' => 'Brand ' . $i,
             ]);
         }
     }
