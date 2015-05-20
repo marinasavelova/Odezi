@@ -114,7 +114,7 @@ class StoreController extends Controller {
 		
 		$store = Store::findOrFail($id);
 
-		$store->name = $request->input("name");
+		$store->fill($data);
 
 		$file = \Input::file('img');
 		
