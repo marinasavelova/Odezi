@@ -103,8 +103,18 @@
   {!! HTML::script('js/behaviour/core.js') !!}
 
   <script type="text/javascript">
-    $(function(){
-      $("#cl-wrapper").css({opacity:1,'margin-left':0});
+    $(document).ready(function(){
+        $("#cl-wrapper").css({opacity:1,'margin-left':0});
+        var menuitem = $(".sub-menu a[href='{{Request::url()}}']");
+        if (menuitem.length==0) {
+            menuitem = $(".sub-menu[href='{{Route::currentRouteName()}}']");
+            menuitem.show().parents(".parent").addClass("open active");
+            
+        }else{
+            menuitem.parent("li").addClass("active");
+            menuitem.parents(".parent").addClass("open");
+            menuitem.parents(".sub-menu").show();
+        }
     });
   </script>
     

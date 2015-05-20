@@ -103,7 +103,7 @@ class CountryController extends Controller {
 		
 		$country = Country::findOrFail($id);
 
-		$country->name = $request->input("name");
+		$country->fill($data);
 
 		$country->save();
 

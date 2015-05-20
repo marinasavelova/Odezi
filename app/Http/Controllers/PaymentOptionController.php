@@ -123,7 +123,7 @@ class PaymentOptionController extends Controller {
 		
 		$paymentoption = PaymentOption::findOrFail($id);
 
-		$paymentoption->name = $request->input("name");
+		$paymentoption->fill($data);
 		
 	  $file = \Input::file('img');
 		
