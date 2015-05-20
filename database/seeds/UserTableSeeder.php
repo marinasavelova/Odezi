@@ -11,7 +11,12 @@ class UserTableSeeder extends Seeder {
     public function run()
     {
         DB::table('users')->delete();
-        User::create(['name'=>'Marina', 'email' => 'marina.savelova@pkp.vn.ua', 'password'=>Hash::make('mmmmmm')]);
+        User::create([
+            'name'=>'Marina',
+            'email' => 'marina.savelova@pkp.vn.ua',
+            'password'=>Hash::make('mmmmmm'),
+            'remember_token'=>str_random(60)
+        ]);
     }
 
 }
